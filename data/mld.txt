@@ -1,0 +1,13 @@
+table difficulté: id_difficulté as PRIMARY KEY, nom
+
+table question: id_question as PRIMARY KEY, description, wiki, anecdote, id_difficulté as FOREIGN KEY FROM table difficulté, id_quiz as FOREIGN KEY FROM table quiz
+
+table proposition: id_proposition as PRIMARY KEY, description, id_question as FOREIGN KEY FROM table question 
+
+table utilisateur: id_utilisateur as PRIMARY KEY, nom, prénom, email, mot de passe
+
+table quiz: id_quiz as PRIMARY KEY, titre, description, id_utilisateur as FOREIGN KEY FROM table utilisateur
+
+table thème: id_thème as PRIMARY KEY, nom
+
+table sujet: id_sujet as PRIMARY KEY, id_quiz as FOREIGN KEY FROM table quiz, id_thème as FOREIGN KEY FROM table thème
